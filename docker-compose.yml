@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  api:
+    container_name: api_node
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+    networks:
+      - app-network-1
+    links:
+      - mongodb
+
+  mongodb:
+    container_name: mongodb_1
+    image: mongo
+    networks:
+      - app-network-1
+
+networks:
+  app-network-1:
+    driver: bridge
