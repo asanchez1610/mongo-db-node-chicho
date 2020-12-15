@@ -20,8 +20,8 @@ services:
     container_name: mongodb_1
     image: mongo,
     volumes:
-      - mongodb:/data/db
-      - mongodb_config:/data/configdb
+      - mongodbdata:/data/db
+      - mongodbdata_config:/data/configdb
     networks:
       - app-network-1
 
