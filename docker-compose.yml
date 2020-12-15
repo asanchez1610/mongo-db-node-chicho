@@ -17,11 +17,10 @@ services:
       - mongodb
 
   mongodb:
-    container_name: mongodb_1
-    image: mongo,
+    container_name: mongodb
+    image: mongo
     volumes:
-      - mongodbdata:/data/db
-      - mongodbdata_config:/data/configdb
+      - ./data:/data/db
     networks:
       - app-network-1
 
